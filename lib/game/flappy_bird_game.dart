@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 
 import '../components/pipe_group.dart';
@@ -8,7 +9,7 @@ import '../components/bird.dart';
 import '../components/ground.dart';
 import 'configuration.dart';
 
-class FlappyBirdGame extends FlameGame {
+class FlappyBirdGame extends FlameGame with TapDetector {
   late Bird bird;
   late Timer interval;
 
@@ -31,7 +32,13 @@ class FlappyBirdGame extends FlameGame {
   }
 
   @override
-  void update(double dt) {
-    super.update(dt);
+  void onTap() {
+    super.onTap();
+    bird.fly();
   }
+
+  // @override
+  // void update(double dt) {
+  //   super.update(dt);
+  // }
 }
