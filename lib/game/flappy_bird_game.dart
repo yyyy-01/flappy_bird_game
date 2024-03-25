@@ -22,12 +22,13 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
       Background(),
       Ground(),
       bird = Bird(),
-      PipeGroup(),
     ]);
 
     interval = Timer.periodic(const Duration(milliseconds: Config.pipeInterval),
         (Timer timer) {
-      add(PipeGroup());
+      if (!paused) {
+        add(PipeGroup());
+      }
     });
   }
 

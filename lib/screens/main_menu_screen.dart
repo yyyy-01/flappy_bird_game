@@ -14,17 +14,23 @@ class MainMenuScreen extends StatelessWidget {
     game.pauseEngine();
 
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Assets.menu),
-            // image: AssetImage('assets/images/menu.jpg'),
-            fit: BoxFit.cover,
+      body: GestureDetector(
+        onTap: () {
+          game.overlays.remove(id);
+          game.resumeEngine();
+        },
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Assets.menu),
+              // image: AssetImage('assets/images/menu.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
+          child: Image.asset(Assets.message),
         ),
-        child: Image.asset(Assets.message),
       ),
     );
   }
