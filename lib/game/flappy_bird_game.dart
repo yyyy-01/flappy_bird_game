@@ -11,7 +11,10 @@ import 'configuration.dart';
 
 class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   late Bird bird;
+  // TODO: Next step Scoring
+  // https://youtu.be/zcs8qRBRz7w?t=1616
   late Timer interval;
+  bool isHit = false;
 
   // Timer interval = Timer(Config.pipeInterval, repeat: true);
 

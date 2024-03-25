@@ -7,6 +7,7 @@ import 'package:flutter_flappy_bird_game/game/flappy_bird_game.dart';
 
 import '../game/assets.dart';
 import '../game/configuration.dart';
+import '../screens/game_over_screen.dart';
 
 class Bird extends SpriteGroupComponent<BirdMovement>
     with HasGameRef<FlappyBirdGame>, CollisionCallbacks {
@@ -53,7 +54,13 @@ class Bird extends SpriteGroupComponent<BirdMovement>
   }
 
   void gameOver() {
+    gameRef.overlays.add(GameOverScreen.id);
     gameRef.pauseEngine();
+    game.isHit = true;
+  }
+
+  void reset() {
+    position = Vector2(50, gameRef.size.y / 2 - size.y / 2);
   }
 
   @override

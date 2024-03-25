@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_flappy_bird_game/game/flappy_bird_game.dart';
 
 import '../game/configuration.dart';
@@ -37,7 +36,11 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame> {
 
     if (position.x < -50) {
       removeFromParent();
-      debugPrint("Removed");
+    }
+
+    if (gameRef.isHit) {
+      removeFromParent();
+      gameRef.isHit = false;
     }
   }
 }
