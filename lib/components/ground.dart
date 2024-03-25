@@ -27,8 +27,6 @@ class Ground extends ParallaxComponent<FlappyBirdGame>
         size: Vector2(gameRef.size.x, Config.groundHeight),
       ),
     );
-    // TODO: Next Step Overlays
-    //   https://youtu.be/zcs8qRBRz7w?t=1232
   }
 
   @override

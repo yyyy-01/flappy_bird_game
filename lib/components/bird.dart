@@ -2,7 +2,6 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flutter/animation.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_flappy_bird_game/game/bird_movement.dart';
 import 'package:flutter_flappy_bird_game/game/flappy_bird_game.dart';
 
