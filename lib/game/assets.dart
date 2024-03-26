@@ -12,4 +12,7 @@ class Assets {
   static const gameOver = 'assets/images/gameover.png';
   static const menu = 'assets/images/menu.jpg';
   static const message = 'assets/images/message.png';
+
+  // TODO: Sound Effects
+  // https://youtu.be/zcs8qRBRz7w?t=1752
 }

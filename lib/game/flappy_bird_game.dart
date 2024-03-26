@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
 
+import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 
@@ -11,28 +13,51 @@ import 'configuration.dart';
 
 class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   late Bird bird;
-  // TODO: Next step Scoring
-  // https://youtu.be/zcs8qRBRz7w?t=1616
-  late Timer interval;
+  late TextComponent score;
   bool isHit = false;
 
-  // Timer interval = Timer(Config.pipeInterval, repeat: true);
+  /// If Timer does not work, uncomment this
+  // late Timer interval;
+
+  /// If Timer.periodic does not work, uncomment this
+  Timer interval = Timer(Config.pipeInterval.toDouble() / 1000, repeat: true);
 
   @override
   Future<void> onLoad() async {
     // add(Background());
+
+    TextComponent buildScore() {
+      return TextComponent(
+        text: 'Score: 0',
+        position: Vector2(size.x / 2, size.y / 2 * 0.2),
+        anchor: Anchor.center,
+        textRenderer: TextPaint(
+          style: const TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Game',
+          ),
+        ),
+      );
+    }
+
     addAll([
       Background(),
       Ground(),
       bird = Bird(),
+      score = buildScore(),
     ]);
 
-    interval = Timer.periodic(const Duration(milliseconds: Config.pipeInterval),
-        (Timer timer) {
-      if (!paused) {
-        add(PipeGroup());
-      }
-    });
+    /// If Timer.periodic does not work, uncomment this
+    interval.onTick = () => add(PipeGroup());
+
+    /// If Timer does not work, uncomment this
+    // interval = Timer.periodic(const Duration(milliseconds: Config.pipeInterval),
+    //     (Timer timer) {
+    //   if (!paused) {
+    //     add(PipeGroup());
+    //   }
+    // });
   }
 
   @override
@@ -41,8 +66,13 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
     bird.fly();
   }
 
-  // @override
-  // void update(double dt) {
-  //   super.update(dt);
-  // }
+  @override
+  void update(double dt) {
+    super.update(dt);
+
+    /// If Timer.periodic does not work, uncomment this
+    interval.update(dt);
+
+    score.text = 'Score: ${bird.score}';
+  }
 }
