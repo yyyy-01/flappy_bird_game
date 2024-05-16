@@ -4,10 +4,10 @@ project(runner LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "flutter_flappy_bird_game")
+set(BINARY_NAME "flappy_bird_game")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "com.thengyuanyuan.flutter_flappy_bird_game")
+set(APPLICATION_ID "com.thengyuanyuan.flappy_bird_game")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

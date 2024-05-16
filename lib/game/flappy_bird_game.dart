@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flutter/services.dart';
 
 import '../components/pipe_group.dart';
 import '../components/background.dart';
@@ -11,7 +12,8 @@ import '../components/bird.dart';
 import '../components/ground.dart';
 import 'configuration.dart';
 
-class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
+class FlappyBirdGame extends FlameGame
+    with TapDetector, KeyboardEvents, HasCollisionDetection {
   late Bird bird;
   late TextComponent score;
   bool isHit = false;
@@ -24,8 +26,6 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
 
   @override
   Future<void> onLoad() async {
-    // add(Background());
-
     TextComponent buildScore() {
       return TextComponent(
         text: 'Score: 0',
@@ -64,6 +64,21 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   void onTap() {
     super.onTap();
     bird.fly();
+  }
+
+  @override
+  KeyEventResult onKeyEvent(
+      KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    if (event is KeyDownEvent && event.logicalKey == LogicalKeyboardKey.space) {
+      if (!paused) {
+        bird.fly();
+      } else {
+        bird.reset();
+        overlays.clear();
+        resumeEngine();
+      }
+    }
+    return super.onKeyEvent(event, keysPressed);
   }
 
   @override

@@ -1,4 +1,4 @@
-package com.thengyuanyuan.flutter_flappy_bird_game
+package com.thengyuanyuan.flappy_bird_game
 
 import io.flutter.embedding.android.FlutterActivity
 

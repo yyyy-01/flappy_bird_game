@@ -3,8 +3,8 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/animation.dart';
-import 'package:flutter_flappy_bird_game/game/bird_movement.dart';
-import 'package:flutter_flappy_bird_game/game/flappy_bird_game.dart';
+import 'package:flappy_bird_game/game/bird_movement.dart';
+import 'package:flappy_bird_game/game/flappy_bird_game.dart';
 
 import '../game/assets.dart';
 import '../game/configuration.dart';

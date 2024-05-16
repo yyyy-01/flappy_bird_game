@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_flappy_bird_game/game/flappy_bird_game.dart';
+import 'package:flappy_bird_game/game/flappy_bird_game.dart';
 
 import '../game/assets.dart';
 

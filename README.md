@@ -1,4 +1,4 @@
-# flutter_flappy_bird_game
+# flappy_bird_game
 
 A new Flutter project. Flappy Bird Game in Flutter & Flame. https://www.youtube.com/watch?v=zcs8qRBRz7w
 

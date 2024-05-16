@@ -1,8 +1,8 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
-import 'package:flutter_flappy_bird_game/game/flappy_bird_game.dart';
-import 'package:flutter_flappy_bird_game/game/pipe_position.dart';
+import 'package:flappy_bird_game/game/flappy_bird_game.dart';
+import 'package:flappy_bird_game/game/pipe_position.dart';
 
 import '../game/assets.dart';
 import '../game/configuration.dart';
